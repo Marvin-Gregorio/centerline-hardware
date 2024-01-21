@@ -5,7 +5,7 @@
 <?php endif;?>
 <div class="card card-outline card-primary">
 	<div class="card-header">
-		<h3 class="card-title">List of Purchase Orders</h3>
+		<h3 class="card-title">List of Purchase Items</h3>
 		<div class="card-tools">
 			<a href="?page=purchase_orders/manage_po" class="btn btn-flat btn-success"><span class="fas fa-plus"></span>  PURCHASE</a>
 		</div>
