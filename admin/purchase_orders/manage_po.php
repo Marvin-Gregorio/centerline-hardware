@@ -71,16 +71,18 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 					<table class="table table-striped table-bordered" id="item-list">
 						<colgroup>
 							<col width="5%">
+							<col width="10">
 							<col width="5%">
 							<col width="10%">
 							<col width="20%">
 							<col width="30%">
-							<col width="15%">
-							<col width="15%">
+							<col width="10%">
+							<col width="10%">
 						</colgroup>
 						<thead>
 							<tr class="bg-red disabled">
 								<th class="px-1 py-1 text-center"></th>
+								<th class="px-1 py-1 text-center">In-stock</th>
 								<th class="px-1 py-1 text-center">Qty</th>
 								<th class="px-1 py-1 text-center">Unit</th>
 								<th class="px-1 py-1 text-center">Item Code</th>
@@ -99,6 +101,9 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 							<tr class="po-item" data-id="">
 								<td class="align-middle p-1 text-center">
 									<button class="btn btn-sm btn-danger py-0" type="button" onclick="rem_item($(this))"><i class="fa fa-times"></i></button>
+								</td>
+								<td class="align-middle p-0 text-center">
+									<input type="number" class="text-center w-100 border-0" step="any" name="stock[]" value="<?php echo $row['quantity'] ?>"/>
 								</td>
 								<td class="align-middle p-0 text-center">
 									<input type="number" class="text-center w-100 border-0" step="any" name="qty[]" value="<?php echo $row['quantity'] ?>"/>
@@ -121,23 +126,23 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 						<tfoot>
 							<tr class="bg-lightblue">
 								<tr>
-									<th class="p-1 text-right" colspan="6"><span><button class="btn btn btn-sm btn-flat btn-primary py-0 mx-1" type="button" id="add_row">Add Row</button></span> Sub Total</th>
+									<th class="p-1 text-right" colspan="7"><span><button class="btn btn btn-sm btn-flat btn-primary py-0 mx-1" type="button" id="add_row">Add Row</button></span> Sub Total</th>
 									<th class="p-1 text-right" id="sub_total">0</th>
 								</tr>
 								<tr>
-									<th class="p-1 text-right" colspan="6">Discount (%)
+									<th class="p-1 text-right" colspan="7">Discount (%)
 									<input type="number" step="any" name="discount_percentage" class="border-light text-right" value="<?php echo isset($discount_percentage) ? $discount_percentage : 0 ?>">
 									</th>
 									<th class="p-1"><input type="text" class="w-100 border-0 text-right" readonly value="<?php echo isset($discount_amount) ? $discount_amount : 0 ?>" name="discount_amount"></th>
 								</tr>
 								<tr>
-									<th class="p-1 text-right" colspan="6">Tax Inclusive (%)
+									<th class="p-1 text-right" colspan="7">Tax Inclusive (%)
 									<input type="number" step="any" name="tax_percentage" class="border-light text-right" value="<?php echo isset($tax_percentage) ? $tax_percentage : 0 ?>">
 									</th>
 									<th class="p-1"><input type="text" class="w-100 border-0 text-right" readonly value="<?php echo isset($tax_amount) ? $tax_amount : 0 ?>" name="tax_amount"></th>
 								</tr>
 								<tr>
-									<th class="p-1 text-right" colspan="6">Total</th>
+									<th class="p-1 text-right" colspan="7">Total</th>
 									<th class="p-1 text-right" id="total">0</th>
 								</tr>
 							</tr>
@@ -168,6 +173,9 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 	<tr class="po-item" data-id="">
 		<td class="align-middle p-1 text-center">
 			<button class="btn btn-sm btn-danger py-0" type="button" onclick="rem_item($(this))"><i class="fa fa-times"></i></button>
+		</td>
+		<td class="align-middle p-0 text-center">
+			<input type="number" disabled class="item-stock text-center w-100 border-0" step="any" name="stock[]" required/>
 		</td>
 		<td class="align-middle p-0 text-center">
 			<input type="number" class="text-center w-100 border-0" step="any" name="qty[]" required/>
@@ -244,6 +252,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 				_item.find('.item-description').text(ui.item.description)
 				_item.find('.item-price').val(ui.item.unit_price)
 				_item.find('.item-unit').val(ui.item.unit)
+				_item.find('.item-stock').val(ui.item.stock)
 			}
 		})
 	}
@@ -284,6 +293,10 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 				alert_toast(" Please add atleast 1 item on the list.",'warning')
 				return false;
 			}
+
+			// prevent  from saving out of stock items
+			alert_toast("Item Out of Stock!", 'warning');
+			return false;
 			start_loader();
 			$.ajax({
 				url:_base_url_+"classes/Master.php?f=save_po",
