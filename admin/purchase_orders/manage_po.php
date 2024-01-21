@@ -295,8 +295,11 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 			}
 
 			// prevent  from saving out of stock items
-			alert_toast("Item Out of Stock!", 'warning');
-			return false;
+			if(check_item_level()){
+				alert_toast("Item Out of Stock!", 'warning');
+				return false;
+			}
+			
 			start_loader();
 			$.ajax({
 				url:_base_url_+"classes/Master.php?f=save_po",
@@ -339,5 +342,16 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 
 	function display_item(){
 		$('#item_view').css('display','block');
+	}
+
+	function check_item_level(){
+		let stock = document.getElementsByName('stock[]');
+		let qty = document.getElementsByName('qty[]');
+
+		for(let x = 0; x < stock.length; x++){
+			if(stock[x].value < qty[x].value)
+				return true;
+		}
+		return false;
 	}
 </script>
