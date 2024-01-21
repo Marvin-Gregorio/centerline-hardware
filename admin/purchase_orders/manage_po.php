@@ -35,7 +35,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 </style>
 <div class="card card-outline card-info">
 	<div class="card-header">
-		<h3 class="card-title"><?php echo isset($id) ? "Update Purchase Order Details": "New Purchase Order" ?> </h3>
+		<h3 class="card-title"><?php echo isset($id) ? "Update Purchase Item Details": "New Purchase Items" ?> </h3>
 	</div>
 	<div class="card-body">
 		<form action="" id="po-form">
@@ -71,20 +71,22 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 					<table class="table table-striped table-bordered" id="item-list">
 						<colgroup>
 							<col width="5%">
+							<col width="10">
 							<col width="5%">
 							<col width="10%">
 							<col width="20%">
 							<col width="30%">
-							<col width="15%">
-							<col width="15%">
+							<col width="10%">
+							<col width="10%">
 						</colgroup>
 						<thead>
 							<tr class="bg-red disabled">
 								<th class="px-1 py-1 text-center"></th>
+								<th class="px-1 py-1 text-center">In-stock</th>
 								<th class="px-1 py-1 text-center">Qty</th>
 								<th class="px-1 py-1 text-center">Unit</th>
-								<th class="px-1 py-1 text-center">Item</th>
-								<th class="px-1 py-1 text-center">Description</th>
+								<th class="px-1 py-1 text-center">Item Code</th>
+								<th class="px-1 py-1 text-center">Item Name</th>
 								<th class="px-1 py-1 text-center">Price</th>
 								<th class="px-1 py-1 text-center">Total</th>
 							</tr>
@@ -99,6 +101,9 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 							<tr class="po-item" data-id="">
 								<td class="align-middle p-1 text-center">
 									<button class="btn btn-sm btn-danger py-0" type="button" onclick="rem_item($(this))"><i class="fa fa-times"></i></button>
+								</td>
+								<td class="align-middle p-0 text-center">
+									<input type="number" class="text-center w-100 border-0" step="any" name="stock[]" value="<?php echo $row['quantity'] ?>"/>
 								</td>
 								<td class="align-middle p-0 text-center">
 									<input type="number" class="text-center w-100 border-0" step="any" name="qty[]" value="<?php echo $row['quantity'] ?>"/>
@@ -121,23 +126,23 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 						<tfoot>
 							<tr class="bg-lightblue">
 								<tr>
-									<th class="p-1 text-right" colspan="6"><span><button class="btn btn btn-sm btn-flat btn-primary py-0 mx-1" type="button" id="add_row">Add Row</button></span> Sub Total</th>
+									<th class="p-1 text-right" colspan="7"><span><button class="btn btn btn-sm btn-flat btn-primary py-0 mx-1" type="button" id="add_row">Add Row</button></span> Sub Total</th>
 									<th class="p-1 text-right" id="sub_total">0</th>
 								</tr>
 								<tr>
-									<th class="p-1 text-right" colspan="6">Discount (%)
+									<th class="p-1 text-right" colspan="7">Discount (%)
 									<input type="number" step="any" name="discount_percentage" class="border-light text-right" value="<?php echo isset($discount_percentage) ? $discount_percentage : 0 ?>">
 									</th>
 									<th class="p-1"><input type="text" class="w-100 border-0 text-right" readonly value="<?php echo isset($discount_amount) ? $discount_amount : 0 ?>" name="discount_amount"></th>
 								</tr>
 								<tr>
-									<th class="p-1 text-right" colspan="6">Tax Inclusive (%)
+									<th class="p-1 text-right" colspan="7">Tax Inclusive (%)
 									<input type="number" step="any" name="tax_percentage" class="border-light text-right" value="<?php echo isset($tax_percentage) ? $tax_percentage : 0 ?>">
 									</th>
 									<th class="p-1"><input type="text" class="w-100 border-0 text-right" readonly value="<?php echo isset($tax_amount) ? $tax_amount : 0 ?>" name="tax_amount"></th>
 								</tr>
 								<tr>
-									<th class="p-1 text-right" colspan="6">Total</th>
+									<th class="p-1 text-right" colspan="7">Total</th>
 									<th class="p-1 text-right" id="total">0</th>
 								</tr>
 							</tr>
@@ -151,9 +156,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 						<div class="col-md-6">
 							<label for="status" class="control-label">Status</label>
 							<select name="status" id="status" class="form-control form-control-sm rounded-0">
-								<option value="0" <?php echo isset($status) && $status == 0 ? 'selected': '' ?>>Pending</option>
 								<option value="1" <?php echo isset($status) && $status == 1 ? 'selected': '' ?>>Approved</option>
-								<option value="2" <?php echo isset($status) && $status == 2 ? 'selected': '' ?>>Denied</option>
 							</select>
 						</div>
 					</div>
@@ -172,7 +175,10 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 			<button class="btn btn-sm btn-danger py-0" type="button" onclick="rem_item($(this))"><i class="fa fa-times"></i></button>
 		</td>
 		<td class="align-middle p-0 text-center">
-			<input type="number" class="text-center w-100 border-0" step="any" name="qty[]"/>
+			<input type="number" disabled class="item-stock text-center w-100 border-0" step="any" name="stock[]" required/>
+		</td>
+		<td class="align-middle p-0 text-center">
+			<input type="number" class="text-center w-100 border-0" step="any" name="qty[]" required/>
 		</td>
 		<td class="align-middle p-1">
 			<input style="pointer-events: none; cursor: not-allowed;" type="text" class="text-center w-100 border-0 item-unit" name="unit[]"/>
@@ -246,6 +252,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 				_item.find('.item-description').text(ui.item.description)
 				_item.find('.item-price').val(ui.item.unit_price)
 				_item.find('.item-unit').val(ui.item.unit)
+				_item.find('.item-stock').val(ui.item.stock)
 			}
 		})
 	}
@@ -286,6 +293,13 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 				alert_toast(" Please add atleast 1 item on the list.",'warning')
 				return false;
 			}
+
+			// prevent  from saving out of stock items
+			if(check_item_level()){
+				alert_toast("Item Out of Stock!", 'warning');
+				return false;
+			}
+			
 			start_loader();
 			$.ajax({
 				url:_base_url_+"classes/Master.php?f=save_po",
@@ -328,5 +342,16 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 
 	function display_item(){
 		$('#item_view').css('display','block');
+	}
+
+	function check_item_level(){
+		let stock = document.getElementsByName('stock[]');
+		let qty = document.getElementsByName('qty[]');
+
+		for(let x = 0; x < stock.length; x++){
+			if(stock[x].value < qty[x].value)
+				return true;
+		}
+		return false;
 	}
 </script>

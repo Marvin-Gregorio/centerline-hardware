@@ -32,14 +32,6 @@
                       </a>
                     </li> 
                     <li class="nav-item dropdown">
-                      <a href="<?php echo base_url ?>admin/?page=suppliers" class="nav-link nav-suppliers">
-                        <i class="nav-icon fas fa-truck-loading"></i>
-                        <p>
-                        Supplier List
-                        </p>
-                      </a>
-                    </li>
-                    <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>admin/?page=items" class="nav-link nav-items">
                         <i class="nav-icon fas fa-boxes"></i>
                         <p>
@@ -48,25 +40,8 @@
                       </a>
                     </li>
                     <li class="nav-item dropdown">
-                      <a class="nav-link nav-purchase_orders" onclick="toggleSalesDropdown()">
-                        <i class="nav-icon fas fa-file-invoice"></i>
-                        <p>
-                          Sales
-                        </p>
-                      </a>
-                      <div id="sales_dropdown" class='d-none'>
-                        <ul class="nav nav-pills nav-sidebar flex-column text-sm nav-compact">
-                          <li class="nav-item dropdown">
-                            <a class="nav-link" href="<?php echo base_url ?>admin/?page=purchase_orders&status=0"><i style="margin-left: 2em;" class="nav-icon fas fa-file-invoice"></i> Pending</a>
-                          </li>
-                          <li class="nav-item dropdown">
-                            <a class="nav-link" href="<?php echo base_url ?>admin/?page=purchase_orders&status=1"><i style="margin-left: 2em;" class="nav-icon fas fa-file-invoice"></i> Approved</a>
-                          </li>
-                          <li class="nav-item dropdown">
-                            <a class="nav-link" href="<?php echo base_url ?>admin/?page=purchase_orders&status=2"><i style="margin-left: 2em;" class="nav-icon fas fa-file-invoice"></i> Cancelled</a>
-                          </li>
-                        </ul>
-                      </div>
+                      <a class="nav-link" href="<?php echo base_url ?>admin/?page=purchase_orders"><i class="nav-icon fas fa-file-invoice"></i>Sales</a>
+                      
                     </li>
 
                     <?php if($_settings->userdata('type') == 1): ?>

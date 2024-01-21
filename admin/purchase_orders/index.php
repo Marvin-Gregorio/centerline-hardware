@@ -5,7 +5,7 @@
 <?php endif;?>
 <div class="card card-outline card-primary">
 	<div class="card-header">
-		<h3 class="card-title">List of Purchase Orders</h3>
+		<h3 class="card-title">List of Purchase Items</h3>
 		<div class="card-tools">
 			<a href="?page=purchase_orders/manage_po" class="btn btn-flat btn-success"><span class="fas fa-plus"></span>  PURCHASE</a>
 		</div>
@@ -26,7 +26,6 @@
 					<col width="10%">
 					<col width="15%">
 					<col width="10%">
-					<col width="10%">
 				</colgroup>
 				<thead>
 					<tr class="bg-red disabled">
@@ -36,7 +35,6 @@
 						<th>Supplier</th>
 						<th>Items</th>
 						<th>Total Amount</th>
-						<th>Status</th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -61,33 +59,10 @@
 							<td class="text-center"><?php echo $row['sname'] ?></td>
 							<td class="text-center"><?php echo number_format($row['item_count']) ?></td>
 							<td class="text-center"><?php echo number_format($row['total_amount']) ?></td>
-							<td>
-								<?php 
-									switch ($row['status']) {
-										case '1':
-											echo '<span class="badge badge-success">Approved</span>';
-											break;
-										case '2':
-											echo '<span class="badge badge-danger">Cancel</span>';
-											break;
-										default:
-											echo '<span class="badge badge-secondary">Pending</span>';
-											break;
-									}
-								?>
-							</td>
 							<td align="center">
-								 <button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
-				                  		Action
-				                    <span class="sr-only">Toggle Dropdown</span>
-				                  </button>
-				                  <div class="dropdown-menu" role="menu">
-								  	<a class="dropdown-item" href="?page=purchase_orders/view_po&id=<?php echo $row['id'] ?>"><span class="fa fa-eye text-primary"></span> View</a>
-				                    <div class="dropdown-divider"></div>
-				                    <a class="dropdown-item" href="?page=purchase_orders/manage_po&id=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Edit</a>
-				                    <div class="dropdown-divider"></div>
-				                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span> Delete</a>
-				                  </div>
+								<button type="button" class="btn btn-flat btn-default btn-sm">
+				                	<a href="?page=purchase_orders/view_po&id=<?php echo $row['id'] ?>"><span class="fa fa-eye text-primary"></span> View</a>
+				                </button>
 							</td>
 						</tr>
 					<?php endwhile; ?>

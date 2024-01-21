@@ -49,7 +49,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 </style>
 <div class="card card-outline card-info">
 	<div class="card-header">
-		<h3 class="card-title"><?php echo isset($id) ? "Update Purchase Order Details": "New Purchase Order" ?> </h3>
+		<h3 class="card-title"><?php echo isset($id) ? "Update Purchase Item Details": "New Purchase Items" ?> </h3>
         <div class="card-tools">
             <button class="btn btn-sm btn-flat btn-success" id="print" type="button"><i class="fa fa-print"></i> Print</button>
 		    <a class="btn btn-sm btn-flat btn-primary" href="?page=purchase_orders/manage_po&id=<?php echo $id ?>">Edit</a>
@@ -113,8 +113,8 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                                 <tr class="bg-navy disabled" style="">
                                     <th class="bg-navy disabled text-light px-1 py-1 text-center">Qty</th>
                                     <th class="bg-navy disabled text-light px-1 py-1 text-center">Unit</th>
-                                    <th class="bg-navy disabled text-light px-1 py-1 text-center hide-item-code">Item</th>
-                                    <th class="bg-navy disabled text-light px-1 py-1 text-center">Description</th>
+                                    <th class="bg-navy disabled text-light px-1 py-1 text-center hide-item-code">Item Code</th>
+                                    <th class="bg-navy disabled text-light px-1 py-1 text-center">Item Name</th>
                                     <th class="bg-navy disabled text-light px-1 py-1 text-center">Price</th>
                                     <th class="bg-navy disabled text-light px-1 py-1 text-center">Total</th>
                                 </tr>
@@ -241,8 +241,8 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                                 <tr class="bg-navy disabled" style="">
                                     <th class="bg-navy disabled text-light px-1 py-1 text-center">Qty</th>
                                     <th class="bg-navy disabled text-light px-1 py-1 text-center">Unit</th>
-                                    <th class="bg-navy disabled text-light px-1 py-1 text-center hide-item-code">Item</th>
-                                    <th class="bg-navy disabled text-light px-1 py-1 text-center">Description</th>
+                                    <th class="bg-navy disabled text-light px-1 py-1 text-center hide-item-code">Item Code</th>
+                                    <th class="bg-navy disabled text-light px-1 py-1 text-center">Item Name</th>
                                     <th class="bg-navy disabled text-light px-1 py-1 text-center">Price</th>
                                     <th class="bg-navy disabled text-light px-1 py-1 text-center">Total</th>
                                 </tr>

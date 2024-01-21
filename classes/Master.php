@@ -138,7 +138,7 @@ Class Master extends DBConnection {
 		
 		$data = array();
 		while($row = $qry->fetch_assoc()){
-			$data[] = array("label"=>$row['name'],"id"=>$row['id'],"description"=>$row['description'],"unit_price"=>$row['price'],"unit"=>$row['unit']);
+			$data[] = array("label"=>$row['name'],"id"=>$row['id'],"description"=>$row['description'],"unit_price"=>$row['price'],"unit"=>$row['unit'],"stock"=>$row['stock']);
 		}
 		return json_encode($data);
 	}
