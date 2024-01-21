@@ -26,7 +26,6 @@
 					<col width="10%">
 					<col width="15%">
 					<col width="10%">
-					<col width="10%">
 				</colgroup>
 				<thead>
 					<tr class="bg-red disabled">
@@ -36,7 +35,6 @@
 						<th>Supplier</th>
 						<th>Items</th>
 						<th>Total Amount</th>
-						<th>Status</th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -61,21 +59,6 @@
 							<td class="text-center"><?php echo $row['sname'] ?></td>
 							<td class="text-center"><?php echo number_format($row['item_count']) ?></td>
 							<td class="text-center"><?php echo number_format($row['total_amount']) ?></td>
-							<td>
-								<?php 
-									switch ($row['status']) {
-										case '1':
-											echo '<span class="badge badge-success">Approved</span>';
-											break;
-										case '2':
-											echo '<span class="badge badge-danger">Cancel</span>';
-											break;
-										default:
-											echo '<span class="badge badge-secondary">Pending</span>';
-											break;
-									}
-								?>
-							</td>
 							<td align="center">
 								 <button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
 				                  		Action
