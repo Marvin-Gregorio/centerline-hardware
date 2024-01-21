@@ -17,9 +17,9 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 <div class="container fluid">
     <callout class="callout-primary">
         <dl class="row">
-            <dt class="col-md-4">Item Name</dt>
+            <dt class="col-md-4">Item Code</dt>
             <dd class="col-md-8">: <?php echo $name ?></dd>
-            <dt class="col-md-4">Description</dt>
+            <dt class="col-md-4">Item Name</dt>
             <dd class="col-md-8">: <?php echo $description ?></dd>
             <dt class="col-md-4">Status</dt>
             <dd class="col-md-8">:&nbsp;

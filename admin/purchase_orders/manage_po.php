@@ -151,9 +151,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 						<div class="col-md-6">
 							<label for="status" class="control-label">Status</label>
 							<select name="status" id="status" class="form-control form-control-sm rounded-0">
-								<option value="0" <?php echo isset($status) && $status == 0 ? 'selected': '' ?>>Pending</option>
 								<option value="1" <?php echo isset($status) && $status == 1 ? 'selected': '' ?>>Approved</option>
-								<option value="2" <?php echo isset($status) && $status == 2 ? 'selected': '' ?>>Denied</option>
 							</select>
 						</div>
 					</div>

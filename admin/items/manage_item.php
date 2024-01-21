@@ -30,7 +30,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                 <input type="text" name="name" id="name" class="form-control rounded-0" value="<?php echo isset($name) ? $name :"" ?>" required>
             </div>
             <div class="form-group">
-                <label for="description" class="control-label">Description</label>
+                <label for="description" class="control-label">Item Name</label>
                 <textarea rows="3" name="description" id="description" class="form-control rounded-0" required><?php echo isset($description) ? $description :"" ?></textarea>
             </div>
             <div class="form-group">
@@ -153,7 +153,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                 <input type="text" name="name" id="name" class="form-control rounded-0" value="<?php echo isset($name) ? $name :"" ?>" required>
             </div>
             <div class="form-group">
-                <label for="description" class="control-label">Description</label>
+                <label for="description" class="control-label">Item Name</label>
                 <textarea rows="3" name="description" id="description" class="form-control rounded-0" required><?php echo isset($description) ? $description :"" ?></textarea>
             </div>
             <div class="form-group">
