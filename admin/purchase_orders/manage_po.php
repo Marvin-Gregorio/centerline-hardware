@@ -170,7 +170,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 			<button class="btn btn-sm btn-danger py-0" type="button" onclick="rem_item($(this))"><i class="fa fa-times"></i></button>
 		</td>
 		<td class="align-middle p-0 text-center">
-			<input type="number" class="text-center w-100 border-0" step="any" name="qty[]"/>
+			<input type="number" class="text-center w-100 border-0" step="any" name="qty[]" required/>
 		</td>
 		<td class="align-middle p-1">
 			<input style="pointer-events: none; cursor: not-allowed;" type="text" class="text-center w-100 border-0 item-unit" name="unit[]"/>
