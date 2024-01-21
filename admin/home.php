@@ -67,58 +67,10 @@
           </div>
           <!-- /.col -->
            <!-- /.col -->
-           <div class="col-24 col-sm-12 col-md-6">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-success elevation-4"><i class="fa fa-check"></i></span>
-
-              <a class="info-box-content" style="text-decoration:none; color:inherit;" href="<?php echo base_url ?>admin/?page=purchase_orders&status=1">
-                <span class="info-box-text" STYLE= "font-weight:bold">Approve P.O.</span>
-                <span class="info-box-number">
-                  <?php 
-                     $po_appoved = $conn->query("SELECT * FROM po_list where `status` =1 ")->num_rows;
-                     echo number_format($po_appoved);
-                  ?>
-                  
-                </span>
-              </a>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
+           
           <!-- /.col -->
           <!-- /.col -->
-          <div class="col-24 col-sm-12 col-md-6">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-danger elevation-4"><i class="fa fa-ban"></i></span>
-              <a class="info-box-content" style="text-decoration:none; color:inherit;" href="<?php echo base_url ?>admin/?page=purchase_orders&status=2">
-                <span class="info-box-text " STYLE= "font-weight:bold">Cancel PO</span>
-                <span class="info-box-number">
-                  <?php 
-                     $po = $conn->query("SELECT * FROM po_list where `status` =2 ")->num_rows;
-                     echo number_format($po);
-                  ?>
-                </span>
-              </a>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <div class="col-24 col-sm-12 col-md-6">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-info elevation-4"><i class="fa fa-clipboard-list"></i></span>
-              <a class="info-box-content" style="text-decoration:none; color:inherit;" href="<?php echo base_url ?>admin/?page=purchase_orders&status=0">
-                <span class="info-box-text " STYLE= "font-weight:bold">PENDING PO</span>
-                <span class="info-box-number">
-                  <?php 
-                     $po = $conn->query("SELECT * FROM po_list where `status` =0 ")->num_rows;
-                     echo number_format($po);
-                  ?>
-                </span>
-              </a>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
+          
           <?php 
             $supplier_qry = $conn->query("SELECT * FROM `supplier_list` order by `name` asc");
             while($row = $supplier_qry->fetch_assoc()){
