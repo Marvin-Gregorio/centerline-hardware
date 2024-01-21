@@ -113,8 +113,8 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                                 <tr class="bg-navy disabled" style="">
                                     <th class="bg-navy disabled text-light px-1 py-1 text-center">Qty</th>
                                     <th class="bg-navy disabled text-light px-1 py-1 text-center">Unit</th>
-                                    <th class="bg-navy disabled text-light px-1 py-1 text-center hide-item-code">Item</th>
-                                    <th class="bg-navy disabled text-light px-1 py-1 text-center">Description</th>
+                                    <th class="bg-navy disabled text-light px-1 py-1 text-center hide-item-code">Item Code</th>
+                                    <th class="bg-navy disabled text-light px-1 py-1 text-center">Item Name</th>
                                     <th class="bg-navy disabled text-light px-1 py-1 text-center">Price</th>
                                     <th class="bg-navy disabled text-light px-1 py-1 text-center">Total</th>
                                 </tr>
@@ -241,8 +241,8 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                                 <tr class="bg-navy disabled" style="">
                                     <th class="bg-navy disabled text-light px-1 py-1 text-center">Qty</th>
                                     <th class="bg-navy disabled text-light px-1 py-1 text-center">Unit</th>
-                                    <th class="bg-navy disabled text-light px-1 py-1 text-center hide-item-code">Item</th>
-                                    <th class="bg-navy disabled text-light px-1 py-1 text-center">Description</th>
+                                    <th class="bg-navy disabled text-light px-1 py-1 text-center hide-item-code">Item Code</th>
+                                    <th class="bg-navy disabled text-light px-1 py-1 text-center">Item Name</th>
                                     <th class="bg-navy disabled text-light px-1 py-1 text-center">Price</th>
                                     <th class="bg-navy disabled text-light px-1 py-1 text-center">Total</th>
                                 </tr>

@@ -83,8 +83,8 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 								<th class="px-1 py-1 text-center"></th>
 								<th class="px-1 py-1 text-center">Qty</th>
 								<th class="px-1 py-1 text-center">Unit</th>
-								<th class="px-1 py-1 text-center">Item</th>
-								<th class="px-1 py-1 text-center">Description</th>
+								<th class="px-1 py-1 text-center">Item Code</th>
+								<th class="px-1 py-1 text-center">Item Name</th>
 								<th class="px-1 py-1 text-center">Price</th>
 								<th class="px-1 py-1 text-center">Total</th>
 							</tr>

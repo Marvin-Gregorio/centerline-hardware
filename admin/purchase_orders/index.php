@@ -60,15 +60,9 @@
 							<td class="text-center"><?php echo number_format($row['item_count']) ?></td>
 							<td class="text-center"><?php echo number_format($row['total_amount']) ?></td>
 							<td align="center">
-								 <button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
-				                  		Action
-				                    <span class="sr-only">Toggle Dropdown</span>
-				                  </button>
-				                  <div class="dropdown-menu" role="menu">
-								  	<a class="dropdown-item" href="?page=purchase_orders/view_po&id=<?php echo $row['id'] ?>"><span class="fa fa-eye text-primary"></span> View</a>
-				                    <div class="dropdown-divider"></div>
-				                    <a class="dropdown-item" href="?page=purchase_orders/manage_po&id=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Edit</a>
-				                  </div>
+								<button type="button" class="btn btn-flat btn-default btn-sm">
+				                	<a href="?page=purchase_orders/view_po&id=<?php echo $row['id'] ?>"><span class="fa fa-eye text-primary"></span> View</a>
+				                </button>
 							</td>
 						</tr>
 					<?php endwhile; ?>
