@@ -46,75 +46,75 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                 <select name="unit" class="form-control rounded-0" name="unit">
                     <?php 
                     if(isset($unit)){
-                        if($unit == 'BOX/S'){
-                            echo '<option value="BOX/S" selected>BOX/S</option>
-                                    <option value="PC/S">PC/S</option>
-                                    <option value="KG/S">KG/S</option>
-                                    <option value="SACK/S">SACK/S</option>
-                                    <option value="BAG/S">BAG/S</option>
-                                    <option value="GALLON/S">GALLON/S</option>
-                                    <option value="ROLL/S">ROLL/S</option>';
+                        if($unit == 'BOX'){
+                            echo '<option value="BOX" selected>BOX</option>
+                                    <option value="PC">PC</option>
+                                    <option value="KG">KG</option>
+                                    <option value="SACK">SACK</option>
+                                    <option value="BAG">BAG</option>
+                                    <option value="GALLON">GALLON</option>
+                                    <option value="ROLL">ROLL</option>';
                         }
-                        elseif($unit == 'PC/S'){
-                            echo '<option value="BOX/S">BOX/S</option>
-                                    <option value="PC/S" selected>PC/S</option>
-                                    <option value="KG/S">KG/S</option>
-                                    <option value="SACK/S">SACK/S</option>
-                                    <option value="BAG/S">BAG/S</option>
-                                    <option value="GALLON/S">GALLON/S</option>
-                                    <option value="ROLL/S">ROLL/S</option>';   
+                        elseif($unit == 'PC'){
+                            echo '<option value="BOX">BOX</option>
+                                    <option value="PC" selected>PC</option>
+                                    <option value="KG">KG</option>
+                                    <option value="SACK">SACK</option>
+                                    <option value="BAG">BAG</option>
+                                    <option value="GALLON">GALLON</option>
+                                    <option value="ROLL">ROLL</option>';   
                         }
-                        elseif($unit == 'KG/S'){
-                            echo '<option value="BOX/S">BOX/S</option>
-                                    <option value="PC/S">PC/S</option>
-                                    <option value="KG/S" selected>KG/S</option>
-                                    <option value="SACK/S">SACK/S</option>
-                                    <option value="BAG/S">BAG/S</option>
-                                    <option value="GALLON/S">GALLON/S</option>
-                                    <option value="ROLL/S">ROLL/S</option>';
+                        elseif($unit == 'KG'){
+                            echo '<option value="BOX">BOX</option>
+                                    <option value="PC">PC</option>
+                                    <option value="KG" selected>KG</option>
+                                    <option value="SACK">SACK</option>
+                                    <option value="BAG">BAG</option>
+                                    <option value="GALLON">GALLON</option>
+                                    <option value="ROLL">ROLL</option>';
                         }
-                        elseif($unit == 'SACK/S'){
-                            echo '<option value="BOX/S">BOX/S</option>
-                                    <option value="PC/S">PC/S</option>
-                                    <option value="KG/S">KG/S</option>
-                                    <option value="SACK/S" selected>SACK/S</option>
-                                    <option value="BAG/S">BAG/S</option>
-                                    <option value="GALLON/S">GALLON/S</option>
-                                    <option value="ROLL/S">ROLL/S</option>';
+                        elseif($unit == 'SACK'){
+                            echo '<option value="BOX">BOX</option>
+                                    <option value="PC">PC</option>
+                                    <option value="KG">KG</option>
+                                    <option value="SACK" selected>SACK</option>
+                                    <option value="BAG">BAG</option>
+                                    <option value="GALLON">GALLON</option>
+                                    <option value="ROLL">ROLL</option>';
                         }
-                        elseif($unit == 'GALLON/S'){
-                            echo '<option value="BOX/S">BOX/S</option>
-                                    <option value="PC/S">PC/S</option>
-                                    <option value="KG/S">KG/S</option>
-                                    <option value="SACK/S">SACK/S</option>
-                                    <option value="BAG/S">BAG/S</option>
-                                    <option value="GALLON/S" selected>GALLON/S</option>
-                                    <option value="ROLL/S">ROLL/S</option>';  
-                        }elseif($unit == 'BAG/S'){
-                            echo '<option value="BOX/S">BOX/S</option>
-                                    <option value="PC/S">PC/S</option>
-                                    <option value="KG/S">KG/S</option>
-                                    <option value="SACK/S">SACK/S</option>
-                                    <option value="BAG/S" selected>BAG/S</option>
-                                    <option value="GALLON/S">GALLON/S</option>
-                                    <option value="ROLL/S">ROLL/S</option>';
+                        elseif($unit == 'GALLON'){
+                            echo '<option value="BOX">BOX</option>
+                                    <option value="PC">PC</option>
+                                    <option value="KG">KG</option>
+                                    <option value="SACK">SACK</option>
+                                    <option value="BAG">BAG</option>
+                                    <option value="GALLON" selected>GALLON</option>
+                                    <option value="ROLL">ROLL</option>';  
+                        }elseif($unit == 'BAG'){
+                            echo '<option value="BOX">BOX</option>
+                                    <option value="PC">PC</option>
+                                    <option value="KG">KG</option>
+                                    <option value="SACK">SACK</option>
+                                    <option value="BAG" selected>BAG</option>
+                                    <option value="GALLON">GALLON</option>
+                                    <option value="ROLL">ROLL</option>';
                         }else{
-                            echo '<option value="BOX/S">BOX/S</option>
-                                    <option value="PC/S">PC/S</option>
-                                    <option value="KG/S">KG/S</option>
-                                    <option value="SACK/S">SACK/S</option>
-                                    <option value="BAG/S">BAG/S</option>
-                                    <option value="GALLON/S">GALLON/S</option>
-                                    <option value="ROLL/S" selected>ROLL/S</option>';
+                            echo '<option value="BOX">BOX</option>
+                                    <option value="PC">PC</option>
+                                    <option value="KG">KG</option>
+                                    <option value="SACK">SACK</option>
+                                    <option value="BAG">BAG</option>
+                                    <option value="GALLON">GALLON</option>
+                                    <option value="ROLL" selected>ROLL</option>';
                         } 
                     }else{
-                        echo '<option value="BOX/S">BOX/S</option>
-                                    <option value="PC/S">PC/S</option>
-                                    <option value="KG/S">KG/S</option>
-                                    <option value="SACK/S">SACK/S</option>
-                                    <option value="BAG/S">BAG/S</option>
-                                    <option value="GALLON/S">GALLON/S</option>
-                                    <option value="ROLL/S">ROLL/S</option>';
+                        echo '<option value="BOX">BOX</option>
+                                    <option value="PC">PC</option>
+                                    <option value="KG">KG</option>
+                                    <option value="SACK">SACK</option>
+                                    <option value="BAG">BAG</option>
+                                    <option value="GALLON">GALLON</option>
+                                    <option value="ROLL">ROLL</option>';
                     }
                     ?>
                 </select>
@@ -169,75 +169,75 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                 <select name="unit" class="form-control rounded-0" name="unit">
                     <?php 
                     if(isset($unit)){
-                        if($unit == 'BOX/S'){
-                            echo '<option value="BOX/S" selected>BOX/S</option>
-                                    <option value="PC/S">PC/S</option>
-                                    <option value="KG/S">KG/S</option>
-                                    <option value="SACK/S">SACK/S</option>
-                                    <option value="BAG/S">BAG/S</option>
-                                    <option value="GALLON/S">GALLON/S</option>
-                                    <option value="ROLL/S">ROLL/S</option>';
+                        if($unit == 'BOX'){
+                            echo '<option value="BOX" selected>BOX</option>
+                                    <option value="PC">PC</option>
+                                    <option value="KG">KG</option>
+                                    <option value="SACK">SACK</option>
+                                    <option value="BAG">BAG</option>
+                                    <option value="GALLON">GALLON</option>
+                                    <option value="ROLL">ROLL</option>';
                         }
-                        elseif($unit == 'PC/S'){
-                            echo '<option value="BOX/S">BOX/S</option>
-                                    <option value="PC/S" selected>PC/S</option>
-                                    <option value="KG/S">KG/S</option>
-                                    <option value="SACK/S">SACK/S</option>
-                                    <option value="BAG/S">BAG/S</option>
-                                    <option value="GALLON/S">GALLON/S</option>
-                                    <option value="ROLL/S">ROLL/S</option>';   
+                        elseif($unit == 'PC'){
+                            echo '<option value="BOX">BOX</option>
+                                    <option value="PC" selected>PC</option>
+                                    <option value="KG">KG</option>
+                                    <option value="SACK">SACK</option>
+                                    <option value="BAG">BAG</option>
+                                    <option value="GALLON">GALLON</option>
+                                    <option value="ROLL">ROLL</option>';   
                         }
-                        elseif($unit == 'KG/S'){
-                            echo '<option value="BOX/S">BOX/S</option>
-                                    <option value="PC/S">PC/S</option>
-                                    <option value="KG/S" selected>KG/S</option>
-                                    <option value="SACK/S">SACK/S</option>
-                                    <option value="BAG/S">BAG/S</option>
-                                    <option value="GALLON/S">GALLON/S</option>
-                                    <option value="ROLL/S">ROLL/S</option>';
+                        elseif($unit == 'KG'){
+                            echo '<option value="BOX">BOX</option>
+                                    <option value="PC">PC</option>
+                                    <option value="KG" selected>KG</option>
+                                    <option value="SACK">SACK</option>
+                                    <option value="BAG">BAG</option>
+                                    <option value="GALLON">GALLON</option>
+                                    <option value="ROLL">ROLL</option>';
                         }
-                        elseif($unit == 'SACK/S'){
-                            echo '<option value="BOX/S">BOX/S</option>
-                                    <option value="PC/S">PC/S</option>
-                                    <option value="KG/S">KG/S</option>
-                                    <option value="SACK/S" selected>SACK/S</option>
-                                    <option value="BAG/S">BAG/S</option>
-                                    <option value="GALLON/S">GALLON/S</option>
-                                    <option value="ROLL/S">ROLL/S</option>';
+                        elseif($unit == 'SACK'){
+                            echo '<option value="BOX">BOX</option>
+                                    <option value="PC">PC</option>
+                                    <option value="KG">KG</option>
+                                    <option value="SACK" selected>SACK</option>
+                                    <option value="BAG">BAG</option>
+                                    <option value="GALLON">GALLON</option>
+                                    <option value="ROLL">ROLL</option>';
                         }
-                        elseif($unit == 'GALLON/S'){
-                            echo '<option value="BOX/S">BOX/S</option>
-                                    <option value="PC/S">PC/S</option>
-                                    <option value="KG/S">KG/S</option>
-                                    <option value="SACK/S">SACK/S</option>
-                                    <option value="BAG/S">BAG/S</option>
-                                    <option value="GALLON/S" selected>GALLON/S</option>
-                                    <option value="ROLL/S">ROLL/S</option>';  
-                        }elseif($unit == 'BAG/S'){
-                            echo '<option value="BOX/S">BOX/S</option>
-                                    <option value="PC/S">PC/S</option>
-                                    <option value="KG/S">KG/S</option>
-                                    <option value="SACK/S">SACK/S</option>
-                                    <option value="BAG/S" selected>BAG/S</option>
-                                    <option value="GALLON/S">GALLON/S</option>
-                                    <option value="ROLL/S">ROLL/S</option>';
+                        elseif($unit == 'GALLON'){
+                            echo '<option value="BOX">BOX</option>
+                                    <option value="PC">PC</option>
+                                    <option value="KG">KG</option>
+                                    <option value="SACK">SACK</option>
+                                    <option value="BAG">BAG</option>
+                                    <option value="GALLON" selected>GALLON</option>
+                                    <option value="ROLL">ROLL</option>';  
+                        }elseif($unit == 'BAG'){
+                            echo '<option value="BOX">BOX</option>
+                                    <option value="PC">PC</option>
+                                    <option value="KG">KG</option>
+                                    <option value="SACK">SACK</option>
+                                    <option value="BAG" selected>BAG</option>
+                                    <option value="GALLON">GALLON</option>
+                                    <option value="ROLL">ROLL</option>';
                         }else{
-                            echo '<option value="BOX/S">BOX/S</option>
-                                    <option value="PC/S">PC/S</option>
-                                    <option value="KG/S">KG/S</option>
-                                    <option value="SACK/S">SACK/S</option>
-                                    <option value="BAG/S">BAG/S</option>
-                                    <option value="GALLON/S">GALLON/S</option>
-                                    <option value="ROLL/S" selected>ROLL/S</option>';
+                            echo '<option value="BOX">BOX</option>
+                                    <option value="PC">PC</option>
+                                    <option value="KG">KG</option>
+                                    <option value="SACK">SACK</option>
+                                    <option value="BAG">BAG</option>
+                                    <option value="GALLON">GALLON</option>
+                                    <option value="ROLL" selected>ROLL</option>';
                         } 
                     }else{
-                        echo '<option value="BOX/S">BOX/S</option>
-                                    <option value="PC/S">PC/S</option>
-                                    <option value="KG/S">KG/S</option>
-                                    <option value="SACK/S">SACK/S</option>
-                                    <option value="BAG/S">BAG/S</option>
-                                    <option value="GALLON/S">GALLON/S</option>
-                                    <option value="ROLL/S">ROLL/S</option>';
+                        echo '<option value="BOX">BOX</option>
+                                    <option value="PC">PC</option>
+                                    <option value="KG">KG</option>
+                                    <option value="SACK">SACK</option>
+                                    <option value="BAG">BAG</option>
+                                    <option value="GALLON">GALLON</option>
+                                    <option value="ROLL">ROLL</option>';
                     }
                     ?>
                         
