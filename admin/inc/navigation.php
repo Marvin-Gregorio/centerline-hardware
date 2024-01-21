@@ -32,14 +32,6 @@
                       </a>
                     </li> 
                     <li class="nav-item dropdown">
-                      <a href="<?php echo base_url ?>admin/?page=suppliers" class="nav-link nav-suppliers">
-                        <i class="nav-icon fas fa-truck-loading"></i>
-                        <p>
-                        Supplier List
-                        </p>
-                      </a>
-                    </li>
-                    <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>admin/?page=items" class="nav-link nav-items">
                         <i class="nav-icon fas fa-boxes"></i>
                         <p>
