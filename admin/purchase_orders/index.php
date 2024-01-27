@@ -13,7 +13,7 @@
 			<a href="
 				<?php
 					if(isset($_GET['start_date']) && isset($_GET['end_date'])){
-						echo "?page=purchase_orders/view_po&start_date=".$_GET['start_date']."&end_date=".$_GET['end_date'];
+						echo "?page=purchase_orders/view_po&id=all&start_date=".$_GET['start_date']."&end_date=".$_GET['end_date'];
 					}else{
 						echo "?page=purchase_orders/view_po&id=all";
 					}
