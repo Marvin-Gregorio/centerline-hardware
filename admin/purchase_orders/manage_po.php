@@ -42,7 +42,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 			<input type="hidden" name ="id" value="<?php echo isset($id) ? $id : '' ?>">
 			<div class="row">
 				<div class="col-md-6 form-group">
-				<label for="supplier_id">Supplier</label>
+				<label for="supplier_id">Location</label>
 				<select name="supplier_id" id="supplier_id" class="custom-select custom-select-sm rounded-0 select2" onchange="display_item()">
 						<option value="" disabled <?php echo !isset($supplier_id) ? "selected" :'' ?>></option>
 						<?php 

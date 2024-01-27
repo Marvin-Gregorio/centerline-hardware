@@ -52,7 +52,6 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 		<h3 class="card-title"><?php echo isset($id) ? "Update Purchase Item Details": "New Purchase Items" ?> </h3>
         <div class="card-tools">
             <button class="btn btn-sm btn-flat btn-success" id="print" type="button"><i class="fa fa-print"></i> Print</button>
-		    <a class="btn btn-sm btn-flat btn-primary" href="?page=purchase_orders/manage_po&id=<?php echo $id ?>">Edit</a>
 		    <a class="btn btn-sm btn-flat btn-default" href="?page=purchase_orders">Back</a>
         </div>
 	</div>
