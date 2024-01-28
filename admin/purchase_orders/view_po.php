@@ -6,7 +6,14 @@
 <?php
 if(isset($_GET['id']) && $_GET['id'] > 0){
     if($_GET['id'] == 'all'){
-        $qry = $conn->query("SELECT * from `po_list` where status = 1 order by id desc");
+        if(isset($_GET['start_date']) && isset($_GET['end_date'])){
+            $start = $_GET['start_date'];
+            $end = $_GET['end_date'];
+            $qry = $conn->query("SELECT * from `po_list` where status = 1 and date_created BETWEEN '$start' AND date_add('$end', interval 1 day) order by id");
+        }else{
+            $qry = $conn->query("SELECT * from `po_list` where status = 1 order by id desc");
+        }
+            
         if($qry->num_rows > 0){
             foreach($qry->fetch_assoc() as $k => $v){
                 $$k=$v;
@@ -52,14 +59,20 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 		<h3 class="card-title"><?php echo isset($id) ? "Update Purchase Item Details": "New Purchase Items" ?> </h3>
         <div class="card-tools">
             <button class="btn btn-sm btn-flat btn-success" id="print" type="button"><i class="fa fa-print"></i> Print</button>
-		    <a class="btn btn-sm btn-flat btn-primary" href="?page=purchase_orders/manage_po&id=<?php echo $id ?>">Edit</a>
 		    <a class="btn btn-sm btn-flat btn-default" href="?page=purchase_orders">Back</a>
         </div>
 	</div>
 	<div class="card-body" id="out_print">
         <?php
             if($_GET['id'] == 'all'){
-                $result = $conn->query("SELECT * FROM po_list where status = 1 order by id desc");
+                if(isset($_GET['start_date']) && isset($_GET['end_date'])){
+                    $start = $_GET['start_date'];
+                    $end = $_GET['end_date'];
+                    $result = $conn->query("SELECT * from `po_list` where status = 1 and date_created BETWEEN '$start' AND date_add('$end', interval 1 day) order by id");
+                }else{
+                    $result = $conn->query("SELECT * FROM po_list where status = 1 order by id desc");
+                }
+                
 
                 while($row = $result->fetch_array()){
         ?>

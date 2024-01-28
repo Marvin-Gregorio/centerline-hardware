@@ -10,11 +10,45 @@
 			<a href="?page=purchase_orders/manage_po" class="btn btn-flat btn-success"><span class="fas fa-plus"></span>  PURCHASE</a>
 		</div>
 		<div class="card-tools mr-3">
-			<a href="?page=purchase_orders/view_po&id=all" class="btn btn-flat btn-info"><span class="fas fa-print"></span> PRINT APPROVED</a>
+			<a href="
+				<?php
+					if(isset($_GET['start_date']) && isset($_GET['end_date'])){
+						echo "?page=purchase_orders/view_po&id=all&start_date=".$_GET['start_date']."&end_date=".$_GET['end_date'];
+					}else{
+						echo "?page=purchase_orders/view_po&id=all";
+					}
+				?>
+			" class="btn btn-flat btn-info"><span class="fas fa-print"></span> PRINT</a>
 		</div>
 
 	</div>
 	<div class="card-body">
+		<form action="" method="GET"  class="d-flex mb-3">
+			<div class="mr-2">
+				<label>Start Date</label>
+				<input type="text" name="page" value="purchase_orders" hidden>
+
+				<input type="date" name="start_date" class="form-control" value="<?php
+					if(isset($_GET['start_date'])) 
+						echo $_GET['start_date'];
+					else
+						echo "";
+				?>">
+			</div>
+			<div class="mr-2">
+				<label>End Date</label>
+				<input type="date" name="end_date" class="form-control" value="<?php
+					if(isset($_GET['end_date']))
+						echo $_GET['end_date'];
+					else
+						echo "";
+				?>">
+			</div>
+			<div>
+				<br>
+				<button type="submit" class="btn btn-primary mt-2">Filter</button>
+			</div>			
+		</form>
 		<div class="container-fluid">
         <div class="container-fluid">
 			<table class="table table-hover table-striped">
@@ -32,8 +66,8 @@
 						<th>#</th>
 						<th>Date Created</th>
 						<th>PO #</th>
-						<th>Supplier</th>
-						<th>Items</th>
+						<th>Location</th>
+						<th>Quantity</th>
 						<th>Total Amount</th>
 						<th>Action</th>
 					</tr>
@@ -44,7 +78,12 @@
 						if(isset($_GET['status'])){
 							$status_id = $_GET['status'];
 							$qry = $conn->query("SELECT po.*, s.name as sname FROM `po_list` po inner join `supplier_list` s on po.supplier_id = s.id WHERE po.status = '$status_id' order by unix_timestamp(po.date_created) DESC ");
-						}else{
+						}elseif(isset($_GET['start_date']) && isset($_GET['end_date'])){
+							$start = $_GET['start_date'];
+							$end = $_GET['end_date'];
+							$qry = $conn->query("SELECT po.*, s.name as sname FROM `po_list` po inner join `supplier_list` s on po.supplier_id = s.id WHERE po.date_created BETWEEN '$start' AND date_add('$end', interval 1 day)  order by unix_timestamp(po.date_created) DESC ");
+						}
+						else{
 							$qry = $conn->query("SELECT po.*, s.name as sname FROM `po_list` po inner join `supplier_list` s on po.supplier_id = s.id order by unix_timestamp(po.date_created) DESC");
 						}
 
